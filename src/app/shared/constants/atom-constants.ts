@@ -19,3 +19,14 @@ export const INPUT_DEFAULT_TYPE: InputType = '';
 export const INPUT_SIZE_PREFIX = 'input-size-'
 export const INPUT_STATE_PREFIX = 'input-state-'
 export const INPUT_LABEL_SIZE_PREFIX = 'label-size-'
+
+// Notifications
+export const NOTIFICATION_DEFAULT_TYPE: 'Error' | 'Warning' | 'Success' | 'Inform' = 'Inform';
+export const NOTIFICATION_DEFAULT_MESSAGE: string = '';
+export const NOTIFICATION_DEFAULT_WIDTH: string = '368px';
+export const NOTIFICATION_DEFAULT_HEIGHT: string = '52px';
+export const NOTIFICATION_DEFAULT_OPACITY: string = '1';
+export const NOTIFICATION_DEFAULT_TOP: string = '227px';
+export const NOTIFICATION_DEFAULT_LEFT: string = '246px';
+export const NOTIFICATION_DEFAULT_SHOW: boolean = true;
+export const NOTIFICATION_TYPE_PREFIX = 'notification-'; 

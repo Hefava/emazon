@@ -4,14 +4,15 @@
             {{ title.split('Categoría')[0] }}<span class="categoria-highlight">Categoría</span>
         </h1>
     </div>
+    
     <div class="form-group">
         <input-atom
             formControlName="name"
             [label]="nameLabel"
             [placeholder]="namePlaceholder"
             [size]="'m'"
-            [state]="categoryForm.controls['name'].invalid && categoryForm.controls['name'].touched ? 'disabled' : 'active'"
-        ></input-atom>
+            [state]="categoryForm.controls['name'].invalid && categoryForm.controls['name'].touched ? 'disabled' : 'active'">
+        </input-atom>
     </div>
 
     <div class="form-group">
@@ -21,21 +22,26 @@
             [placeholder]="descriptionPlaceholder"
             type="scroll"
             [size]="'m'"
-            [state]="categoryForm.controls['description'].invalid && categoryForm.controls['description'].touched ? 'disabled' : 'active'"
-        ></input-atom>
+            [state]="categoryForm.controls['description'].invalid && categoryForm.controls['description'].touched ? 'disabled' : 'active'">
+        </input-atom>
     </div>
 
-    <div *ngIf="errorMessage" class="error-message">
-        {{ errorMessage }}
-    </div>
+    <notification-atom 
+        *ngIf="notification.show"
+        [type]="notification.type"
+        [message]="notification.message"
+        [width]="'368px'"
+        [height]="'52px'"
+        [top]="'10px'"
+        [left]="'10px'">
+    </notification-atom>
 
     <div class="form-group">
         <button-atom
-        [size]="'m'"
-        [isDisabled]="!isButtonActive()"  
-        [type]="'main'"
-    >
-        {{ buttonText }}
-    </button-atom>
+            [size]="'m'"
+            [isDisabled]="!isButtonActive()"  
+            [type]="'main'">
+            {{ buttonText }}
+        </button-atom>
     </div>
 </form>

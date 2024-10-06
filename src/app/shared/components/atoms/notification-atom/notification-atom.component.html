@@ -1,0 +1,10 @@
+<div *ngIf="show" 
+    [ngClass]="notificationClass" 
+    [style.width]="width" 
+    [style.height]="height" 
+    [style.opacity]="opacity" 
+    [style.top]="top" 
+    [style.left]="left"
+    class="notification-container">
+  <span class="notification-text">{{ message }}</span>
+</div>
