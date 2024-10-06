@@ -1,32 +1,39 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2020",
-    "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+      "baseUrl": "./",
+      "outDir": "./dist/out-tsc",
+      "paths": {
+          "@atoms/*": ["src/app/shared/components/atoms/*"],
+          "@molecules/*": ["src/app/shared/components/molecules/*"],
+          "@organisms/*": ["src/app/shared/components/organisms/*"],
+          "@templates/*": ["src/app/shared/components/templates/*"],
+    "@customTypes/*": ["src/app/shared/types/*"],
+    "@interfaces/*": ["src/app/shared/interfaces/*"],
+    "@constants/*": ["src/app/shared/constants/*"]
+      },
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "noImplicitOverride": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "sourceMap": true,
+      "declaration": false,
+      "downlevelIteration": true,
+      "experimentalDecorators": true,
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "target": "es2020",
+      "module": "es2020",
+      "lib": ["es2020", "dom"],
+      "types": ["jest"],
+      "esModuleInterop": true
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+      "enableI18nLegacyMessageIdFormat": false,
+      "strictInjectionParameters": true,
+      "strictInputAccessModifiers": true,
+      "strictTemplates": true
   }
 }
