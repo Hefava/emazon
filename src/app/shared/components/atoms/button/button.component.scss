@@ -1,7 +1,5 @@
 @import 'styles';
 
-$pressed-btn-color: #6a17ab;
-
 $colors: (
     active: $purple,
 );
@@ -13,71 +11,62 @@ button {
     user-select: none;
     display: flex;
     gap: 8px;
+
+    background-color: transparent; 
 }
 
 .btn-type-main {
     border: 2px solid transparent;
-}
 
-.btn-type-secondary {
-    background-color: transparent;
-    border: 2px solid;
-}
-
-@each $name, $color in $colors {
-    .btn-state-#{$name} {
-        background-color: $color;
+    &.btn-state-active {
+        background-color: $purple;
         color: white;
-
-        &.btn-type-secondary {
-            background-color: transparent;
-            color: $color;
-            border-color: $color;
-        }
 
         &:hover {
             opacity: 0.8;
         }
 
         &:active {
-            background-color: $pressed-btn-color;
-
-            &.btn-type-secondary {
-                background-color: transparent;
-                color: $pressed-btn-color;
-                border-color: $pressed-btn-color;
-            }
-
-            &.btn-type-text {
-                background-color: transparent;
-                color: $pressed-btn-color;
-            }
+            background-color: $purple;
         }
+    }
 
-        &.btn-type-text {
+    &.btn-state-disabled {
+        background-color: $disabled-color;
+        color: white;
+        cursor: default; 
+
+        &.btn-type-secondary {
             background-color: transparent;
-            color: $color;
+            color: $disabled-color;
+            border-color: $disabled-color;
         }
     }
 }
 
-.btn-state-disabled {
-    background-color: $disabled-color;
-    color: white;
-	cursor: default;
+.btn-type-secondary {
+    background-color: transparent;
+    border: 2px solid;
 
-    &.btn-type-secondary {
+    &.btn-state-active {
+        background-color: $purple;
+        color: white;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &:active {
+            background-color: $purple;
+        }
+    }
+
+    &.btn-state-disabled {
         background-color: transparent;
         color: $disabled-color;
         border-color: $disabled-color;
     }
-
-    &.btn-type-text {
-        background-color: transparent;
-        color: $disabled-color;
-    }
 }
-
 
 .btn-size-s {
     font-size: map-get($map: $font-sizes, $key: "s");

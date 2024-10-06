@@ -21,6 +21,7 @@ export class ButtonComponent implements OnInit {
     @Input() size: ButtonSize = BUTTON_DEFAULT_SIZE;
     @Input() type: ButtonType = BUTTON_DEFAULT_TYPE;
     @Input() state: string = BUTTON_DEFAULT_STATE;
+    @Input() isDisabled: boolean = false; 
 
     constructor() {}
 

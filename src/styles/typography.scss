@@ -1,0 +1,78 @@
+@import 'colors';
+@import 'fonts';
+
+/* Headings */
+h1 {
+    font-size: 44px; /* Tamaño para desktop */
+    line-height: 128%;
+    font-weight: 500; /* Medium */
+}
+
+@media (max-width: 1024px) { /* Tablet */
+    h1 {
+        font-size: 32px;
+        line-height: 124%;
+        font-weight: 500; /* Medium */
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    h1 {
+        font-size: 29px;
+        line-height: 124%;
+        font-weight: 600; /* SemiBold */
+    }
+}
+
+/* Body Text */
+body {
+    font-size: 22px;
+    line-height: 144%;
+    font-weight: 400; /* Regular */
+}
+
+/* H2 */
+h2 {
+    font-size: 24px; /* Big text */
+    line-height: 128%;
+    font-weight: 500; /* Medium */
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 22px;
+        line-height: 128%;
+        font-weight: 600; /* SemiBold */
+    }
+}
+
+/* H3 */
+h3 {
+    font-size: 22px;
+    line-height: 124%;
+    font-weight: 600; /* SemiBold */
+}
+
+h3.bold {
+    font-weight: 700; /* Bold */
+}
+
+/* H4 */
+h4 {
+    font-size: 18px;
+    line-height: 132%;
+    font-weight: 700; /* Bold */
+}
+
+/* Texto adicional */
+body-small {
+    font-size: 16px;
+    line-height: 148%;
+    font-weight: 300; /* Light */
+}
+
+body-extra-small {
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400; /* Regular */
+}

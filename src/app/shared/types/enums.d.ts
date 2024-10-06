@@ -6,10 +6,5 @@ export type ButtonState = 'active' | 'disabled';
 
 // Input
 export type InputSize = 's' | 'm';
-export type InputType = '' | 'password';
+export type InputType = '' | 'password' | 'scroll'; 
 export type InputState = 'active' | 'disabled';
-
-
-
-
-

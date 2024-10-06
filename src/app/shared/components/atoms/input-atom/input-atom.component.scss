@@ -1,53 +1,34 @@
 @import 'styles';
 
-input{
-	all: unset;
-	background-color: $white-color;
-	border-radius: 2px;
-}
+textarea {
+    all: unset;
+    background-color: $white-color;
+    border-radius: 2px;
+    width: 100%; 
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: map-get($map: $font-sizes, $key: "m");
+    overflow-wrap: break-word; 
 
-.input-size-s {
-	padding: 8px 12px;
-	font-size: map-get($map: $font-sizes, $key: "s");
-}
+    &.input-state-active {
+        border: 1px solid;
+        border-color: $spacer-light-color;
 
-.input-size-m {
-	padding: 12px 12px;
-	font-size: map-get($map: $font-sizes, $key: "m");
-}
+        &:focus {
+            border-color: $purple;
+        }
 
-.label-size-s {
-	font-size: map-get($map: $font-sizes, $key: "s");
-}
+        &::placeholder {
+            color: $border-color;
+        }
+    }
 
-.label-size-m {
-	font-size: map-get($map: $font-sizes, $key: "m");
-}
+    &.input-state-disabled {
+        border: 1px solid;
+        border-color: $disabled-color;
 
-.labeled-input-container {
-	display: inline-grid;
-	gap: 4px;
+        &::placeholder {
+            color: $disabled-color;
+        }
+    }
 }
-
-.input-state-active {
-    border: 1px solid;
-	border-color: $spacer-light-color;
-	
-	&:focus {
-		border-color: $purple;
-	}
-	
-	&::placeholder {
-		color: $border-color;
-	}
-}
-
-.input-state-disabled {
-    border: 1px solid;
-	border-color: $disabled-color;
-	
-	&::placeholder {
-		color: $disabled-color;
-	}
-}
-
