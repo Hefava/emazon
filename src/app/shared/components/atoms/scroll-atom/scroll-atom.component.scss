@@ -1,0 +1,41 @@
+@import 'styles';
+
+.scroll {
+    position: absolute; 
+
+    // Tamaños para el scroll standard
+    &.standard {
+      &.vertical {
+        width: 8px;
+        height: 69px;
+        border-radius: 50px 0 0 0;
+        opacity: 1; 
+      }
+
+      &.horizontal {
+        width: 8px;
+        height: 143px;
+        border-radius: 50px 0 0 0;
+        opacity: 1; 
+        transform: rotate(90deg);
+      }
+    }
+
+    // Tamaños para el scroll small
+    &.small {
+      &.vertical {
+        width: 4px;
+        height: 69px;
+        border-radius: 50px 0 0 0;
+        opacity: 1; 
+      }
+
+      &.horizontal {
+        width: 4px;
+        height: 143px;
+        border-radius: 50px 0 0 0;
+        opacity: 1; 
+        transform: rotate(90deg);
+      }
+    }
+}

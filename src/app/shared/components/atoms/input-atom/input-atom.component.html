@@ -1,4 +1,40 @@
 <div *ngIf="label === ''; else labeledInput">
+    <!-- Mostrar un input si el type no es scroll -->
+    <ng-container *ngIf="type !== 'scroll'; else textareaInput">
+        <input
+            class="{{ styles }}"
+            [placeholder]="placeholder"
+            [attr.disabled]="disabled === '' ? null : true"
+            [(ngModel)]="value" 
+            (ngModelChange)="onInput($event)" 
+            name="input-atom"
+            type="text"  
+            [style.width]="'100%'"
+            [style.height]="'50px'"
+        />
+    </ng-container>
+</div>
+
+<ng-template #labeledInput>
+    <div class="labeled-input-container">
+        <label for="input-atom" class="{{ labelStyles }}">{{ label }}</label>
+        <ng-container *ngIf="type !== 'scroll'; else textareaInput">
+            <input
+                class="{{ styles }}"
+                [placeholder]="placeholder"
+                [attr.disabled]="disabled === '' ? null : true"
+                [(ngModel)]="value" 
+                (ngModelChange)="onInput($event)" 
+                name="input-atom"
+                type="text"  
+                [style.width]="'100%'"
+                [style.height]="'50px'"
+            />
+        </ng-container>
+    </div>
+</ng-template>
+
+<ng-template #textareaInput>
     <textarea
         class="{{ styles }}"
         [placeholder]="placeholder"
@@ -12,23 +48,4 @@
         [style.height]="type === 'scroll' ? '100px' : '50px'" 
         [style.resize]="type === 'scroll' ? 'none' : 'both'"
     ></textarea>
-</div>
-
-<ng-template #labeledInput>
-    <div class="labeled-input-container">
-        <label for="input-atom" class="{{ labelStyles }}">{{ label }}</label>
-        <textarea
-            class="{{ styles }}"
-            [placeholder]="placeholder"
-            [attr.disabled]="disabled === '' ? null : true"
-            [(ngModel)]="value" 
-            (ngModelChange)="onInput($event)" 
-            name="input-atom"
-            [style.overflow]="type === 'scroll' ? 'auto' : 'hidden'"
-            [style.white-space]="type === 'scroll' ? 'normal' : 'nowrap'"  
-            [style.width]="'100%'"
-            [style.height]="type === 'scroll' ? '100px' : '50px'" 
-            [style.resize]="type === 'scroll' ? 'none' : 'both'"
-        ></textarea>
-    </div>
 </ng-template>

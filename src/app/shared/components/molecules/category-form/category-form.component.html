@@ -4,7 +4,7 @@
             {{ title.split('Categoría')[0] }}<span class="categoria-highlight">Categoría</span>
         </h1>
     </div>
-    
+
     <div class="form-group">
         <input-atom
             formControlName="name"
@@ -20,7 +20,7 @@
             formControlName="description"
             [label]="descriptionLabel"
             [placeholder]="descriptionPlaceholder"
-            type="scroll"
+            type="scroll" 
             [size]="'m'"
             [state]="categoryForm.controls['description'].invalid && categoryForm.controls['description'].touched ? 'disabled' : 'active'">
         </input-atom>

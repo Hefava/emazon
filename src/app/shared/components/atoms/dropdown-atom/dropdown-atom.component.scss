@@ -1,0 +1,87 @@
+@import 'styles';
+
+.dropdown-container {
+    position: relative;
+    width: 280px; 
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 12px;
+    box-sizing: border-box;
+    background-color: $white-color; 
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    // Borde gris claro (por defecto, similar al textarea)
+    border: 1px solid $spacer-light-color;
+
+    // Estado activo
+    &.dropdown-state-active {
+        border-color: $spacer-light-color; // Mantener el borde gris claro al abrir el dropdown
+
+        &:focus {
+            border-color: $purple; // Cambia a púrpura cuando está enfocado
+        }
+
+        &::placeholder {
+            color: $border-color;
+        }
+    }
+
+    // Estado deshabilitado
+    &.dropdown-state-disabled {
+        border-color: $disabled-color;
+
+        &::placeholder {
+            color: $disabled-color;
+        }
+    }
+
+    .dropdown-display {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%; 
+        font-size: map-get($map: $font-sizes, $key: "m");
+        color: $border-color; 
+        transition: color 0.3s ease;
+
+        .selected {
+            color: black; 
+        }
+
+        &:hover {
+            color: $border-color; 
+        }
+    }
+
+    .dropdown-options {
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        max-height: 176px; 
+        overflow-y: auto; 
+        border: 1px solid $border-color;
+        border-radius: 0 0 2px 2px;
+        background: white;
+        z-index: 1000;
+        opacity: 0;
+        display: none;  // AÑADIDO: No mostrar cuando no está activo
+        transition: opacity 0.3s ease;
+
+        &.dropdown-options-active {
+            opacity: 1;
+            display: block;  // AÑADIDO: Mostrar cuando está activo
+        }
+
+        .dropdown-option {
+            padding: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background: $purple;
+                color: white;
+            }
+        }
+    }
+}

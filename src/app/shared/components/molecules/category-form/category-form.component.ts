@@ -28,6 +28,9 @@ export class CategoryFormComponent implements OnInit {
   categoryForm: FormGroup;
   buttonActive: boolean = false;
 
+  // Opciones para el dropdown
+  dropdownOptions: string[] = ['Option 1', 'Option 2', 'Option 3'];
+
   notification = {
     show: CATEGORY_NOTIFICATION_DEFAULT_SHOW,
     type: NOTIFICATION_DEFAULT_TYPE,
@@ -59,7 +62,7 @@ export class CategoryFormComponent implements OnInit {
     if (this.categoryForm.valid) {
       const dataToSend: CategoryRequest = {
         nombre: this.categoryForm.value.name,
-        descripcion: this.categoryForm.value.description
+        descripcion: this.categoryForm.value.description,
       };
 
       this.categoryService.saveCategory(dataToSend).subscribe(

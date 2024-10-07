@@ -1,0 +1,22 @@
+<div 
+    class="dropdown-container" 
+    [ngClass]="{ 'dropdown-state-active': isActive, 'dropdown-state-disabled': state === 'disabled' }" 
+    (click)="toggleDropdown()"
+    (focus)="onFocus()" 
+    (blur)="onBlur()"
+    tabindex="0"
+>
+    <div class="dropdown-display" (click)="toggleDropdown()">
+        <span [ngClass]="{ 'selected': value }">{{ value || placeholder }}</span> 
+        <span>▼</span>
+    </div>
+    <div class="dropdown-options" [ngClass]="{ 'dropdown-options-active': isActive }">
+        <div 
+            *ngFor="let option of options" 
+            class="dropdown-option" 
+            (click)="selectOption(option); $event.stopPropagation();"
+        >
+            {{ option }}
+        </div>
+    </div>
+</div>

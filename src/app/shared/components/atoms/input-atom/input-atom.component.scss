@@ -1,6 +1,7 @@
 @import 'styles';
 
-textarea {
+// Estilos generales para textarea e input
+textarea, input {
     all: unset;
     background-color: $white-color;
     border-radius: 2px;
@@ -10,25 +11,41 @@ textarea {
     font-size: map-get($map: $font-sizes, $key: "m");
     overflow-wrap: break-word; 
 
+    // Estado activo
     &.input-state-active {
         border: 1px solid;
         border-color: $spacer-light-color;
 
         &:focus {
-            border-color: $purple;
+            border-color: $purple;  // Cambia el borde al púrpura cuando está enfocado
         }
 
         &::placeholder {
-            color: $border-color;
+            color: $border-color;  // Placeholder color en estado activo
         }
     }
 
+    // Estado deshabilitado
     &.input-state-disabled {
         border: 1px solid;
-        border-color: $disabled-color;
+        border-color: $disabled-color; // Borde gris claro en estado deshabilitado
 
         &::placeholder {
-            color: $disabled-color;
+            color: $disabled-color;  // Placeholder color en estado deshabilitado
         }
     }
+}
+
+// Estilos compartidos para focus y disabled
+textarea:focus, input:focus {
+    outline: none; // Elimina el borde por defecto del navegador al hacer focus
+    border-color: $purple; // Borde púrpura cuando está enfocado
+}
+
+textarea::placeholder, input::placeholder {
+    color: $border-color; // Color del placeholder por defecto
+}
+
+textarea:disabled, input:disabled {
+    background-color: $disabled-color; // Fondo más claro cuando está deshabilitado
 }
