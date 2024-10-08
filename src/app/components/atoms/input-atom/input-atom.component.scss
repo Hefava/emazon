@@ -1,0 +1,49 @@
+@import 'styles';
+
+textarea, input {
+    all: unset;
+    background-color: $white-color;
+    border-radius: 2px;
+    width: 100%; 
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: map-get($map: $font-sizes, $key: "m");
+    overflow-wrap: break-word; 
+
+    // Estado activo
+    &.input-state-active {
+        border: 1px solid;
+        border-color: $spacer-light-color;
+
+        &:focus {
+            border-color: $purple;  
+        }
+
+        &::placeholder {
+            color: $border-color;  
+        }
+    }
+
+    // Estado deshabilitado
+    &.input-state-disabled {
+        border: 1px solid;
+        border-color: $disabled-color; 
+
+        &::placeholder {
+            color: $disabled-color; 
+        }
+    }
+}
+
+textarea:focus, input:focus {
+    outline: none; 
+    border-color: $purple; 
+}
+
+textarea::placeholder, input::placeholder {
+    color: $border-color; 
+}
+
+textarea:disabled, input:disabled {
+    background-color: $disabled-color;
+}

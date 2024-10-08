@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoryFormComponent } from '@molecules/category-form/category-form.component';
+import { CategoryFormComponent } from './components/molecules/category-form/category-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

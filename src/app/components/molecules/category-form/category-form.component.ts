@@ -17,7 +17,7 @@ import {
 } from '@constants/molecule-constants';
 import { HttpErrorResponse } from '@angular/common/http'; 
 import { CategoryService } from 'src/app/core/services/category.service';
-import { CategoryRequest } from 'src/app/core/services/category-request.model';
+import { CategoryRequest } from 'src/app/shared/models/category-request.model';
 
 @Component({
   selector: 'app-category-form',

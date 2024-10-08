@@ -9,8 +9,8 @@ import { ScrollAtomComponent } from './scroll-atom/scroll-atom.component';
 import { DropdownAtomComponent } from './dropdown-atom/dropdown-atom.component';
 
 @NgModule({
-    declarations: [ButtonComponent, TextComponent, InputAtomComponent, NotificationAtomComponent, ScrollAtomComponent, DropdownAtomComponent],
+    declarations: [ButtonComponent, TextComponent, InputAtomComponent, NotificationAtomComponent, ScrollAtomComponent, DropdownAtomComponent, ],
     imports: [CommonModule, ReactiveFormsModule, FormsModule],
-    exports: [ButtonComponent, TextComponent, InputAtomComponent, NotificationAtomComponent, ScrollAtomComponent, DropdownAtomComponent],
+    exports: [ButtonComponent, TextComponent, InputAtomComponent, NotificationAtomComponent, ScrollAtomComponent, DropdownAtomComponent, ],
 })
 export class AtomsModule {}
