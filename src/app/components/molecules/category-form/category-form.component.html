@@ -20,26 +20,15 @@
             formControlName="description"
             [label]="descriptionLabel"
             [placeholder]="descriptionPlaceholder"
-            type="scroll" 
             [size]="'m'"
             [state]="categoryForm.controls['description'].invalid && categoryForm.controls['description'].touched ? 'disabled' : 'active'">
         </input-atom>
     </div>
 
-    <notification-atom 
-        *ngIf="notification.show"
-        [type]="notification.type"
-        [message]="notification.message"
-        [width]="'368px'"
-        [height]="'52px'"
-        [top]="'10px'"
-        [left]="'10px'">
-    </notification-atom>
-
     <div class="form-group">
         <button-atom
             [size]="'m'"
-            [isDisabled]="!isButtonActive()"  
+            [isDisabled]="!isButtonActive()"
             [type]="'main'">
             {{ buttonText }}
         </button-atom>

@@ -1,16 +1,26 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AtomsModule } from '../atoms/atoms.module';
 import { CategoryFormComponent } from './category-form/category-form.component';
-import { AtomsModule } from '../atoms/atoms.module'; 
+import { DatatableComponent } from './datatable/datatable.component';
+import { PaginationBarComponent } from './pagination-bar/pagination-bar.component';
 
 @NgModule({
-  declarations: [CategoryFormComponent],
+  declarations: [
+    CategoryFormComponent,
+    DatatableComponent,
+    PaginationBarComponent
+  ],
   imports: [
     CommonModule,
-    ReactiveFormsModule, 
-    AtomsModule, 
+    ReactiveFormsModule,
+    AtomsModule,
   ],
-  exports: [CategoryFormComponent],
+  exports: [
+    CategoryFormComponent,
+    DatatableComponent,
+    PaginationBarComponent,
+  ],
 })
 export class MoleculesModule {}

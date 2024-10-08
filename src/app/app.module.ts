@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AtomsModule } from './components/atoms/atoms.module';
 import { MoleculesModule } from './components/molecules/molecules.module';
+import { PagesModule } from './components/pages/pages.module';
+import { CategoryService } from '@services/category/category.service';
+import { OrganismsModule } from './components/organisms/organisms.module';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,12 @@ import { MoleculesModule } from './components/molecules/molecules.module';
     AppRoutingModule, 
     AtomsModule,
     MoleculesModule,
+    OrganismsModule,
     ReactiveFormsModule, 
+    PagesModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [AtomsModule],
+  providers: [CategoryService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
