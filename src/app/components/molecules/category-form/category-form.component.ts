@@ -49,6 +49,7 @@ export class CategoryFormComponent implements OnInit {
         descripcion: this.categoryForm.value.description,
       };
       this.submitForm.emit(dataToSend); 
+      console.log(dataToSend);
       this.categoryForm.reset(); 
     }
   }

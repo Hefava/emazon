@@ -11,21 +11,13 @@ const ports = {
     report: 9020,
 };
 
-const basePaths = {
-    user: '/emazon/user/v1',
-    stock: '/emazon/stock/v1',
-    transaction: '/emazon/transaction/v1',
-    cart: '/emazon/cart/v1',
-    report: '/emazon/report/v1',
-};
-
 export const environment = {
   production: false,
-  userApiUrl: `${host}:${ports.user}${basePaths.user}`,
-  stockApiUrl: `${host}:${ports.stock}${basePaths.stock}`,
-  transactionApiUrl: `${host}:${ports.transaction}${basePaths.transaction}`,
-  cartApiUrl: `${host}:${ports.cart}${basePaths.cart}`,
-  reportApiUrl: `${host}:${ports.report}${basePaths.report}`,
+  userApiUrl: `${host}:${ports.user}`,
+  stockApiUrl: `${host}:${ports.stock}`,
+  transactionApiUrl: `${host}:${ports.transaction}`,
+  cartApiUrl: `${host}:${ports.cart}`,
+  reportApiUrl: `${host}:${ports.report}`,
 };
 
 

@@ -36,7 +36,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     }
 
     handleFormSubmit(category: CategoryRequest): void {
-        console.log('Datos del formulario enviados:', category); // Depuración
+        console.log('Datos del formulario enviados:', category); 
         this.categoryService.saveCategory(category).subscribe(
             () => {
                 this.showNotification('Success', 'Categoría guardada con éxito');

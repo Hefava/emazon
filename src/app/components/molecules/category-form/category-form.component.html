@@ -19,6 +19,7 @@
         <input-atom
             formControlName="description"
             [label]="descriptionLabel"
+            [type]="'scroll'"
             [placeholder]="descriptionPlaceholder"
             [size]="'m'"
             [state]="categoryForm.controls['description'].invalid && categoryForm.controls['description'].touched ? 'disabled' : 'active'">
