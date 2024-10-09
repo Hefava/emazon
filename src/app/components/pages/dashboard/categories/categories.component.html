@@ -1,8 +1,14 @@
-<app-category-form (submitForm)="handleFormSubmit($event)"></app-category-form>
+<div class="form-group">
+  <h1>
+      {{ title.split('Categorías')[0] }}<span class="categoria-highlight">Categorías!</span>
+  </h1>
+</div>
 
 <ng-container *ngIf="isDataLoaded">
   <paginated-datatable [columns]="columns" [page]="page"></paginated-datatable>
 </ng-container>
+
+<app-category-form (submitForm)="handleFormSubmit($event)"></app-category-form>
 
 <notification-atom 
   *ngIf="notification.show"

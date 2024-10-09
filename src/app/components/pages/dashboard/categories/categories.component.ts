@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CategoryService } from '@services/category/category.service';
 import { Column } from '@interfaces/atoms-interfaces';
-import { categoryColumns } from './categories-constants';
+import { CATEGORY_TABLE_TITLE, categoryColumns } from './categories-constants';
 import { Page } from '@interfaces/services/page';
 import { Subject } from 'rxjs';
 import { CategoryRequest, CategoryResponse } from '@interfaces/models/category-request.model';
@@ -13,11 +13,13 @@ import { NOTIFICATION_DEFAULT_MESSAGE, NOTIFICATION_DEFAULT_TYPE } from '@consta
     templateUrl: './categories.component.html',
     styleUrls: ['./categories.component.scss'],
 })
+
 export class CategoriesComponent implements OnInit, OnDestroy {
     private destroyed = new Subject();
     columns: Array<Column> = categoryColumns;
     page?: Page<CategoryResponse>;
     isDataLoaded: boolean = false;
+    title: string = CATEGORY_TABLE_TITLE;
 
     notification = {
         show: false,

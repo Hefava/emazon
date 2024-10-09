@@ -1,0 +1,59 @@
+@import 'styles';
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $white-color;
+
+  thead {
+    background-color: $white-color;
+
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: bold;
+      color: $black-color;
+      font-size: map-get($map: $font-sizes, $key: "m");
+      border-top: 2px solid $spacer-light-color;
+      border-bottom: 2px solid $spacer-light-color;
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background-color: $bg-light-grey;
+      }
+      &:nth-child(even) {
+        background-color: $white-color;
+      }
+
+      td {
+        padding: 12px 16px;
+        font-size: map-get($map: $font-sizes, $key: "m");
+        color: $black-color;
+        border-bottom: none;
+      }
+    }
+  }
+
+  th, td {
+    border: none;
+  }
+
+  tbody tr {
+    &:hover {
+      background-color: $purple;
+      color: $white-color;
+
+      td {
+        color: $white-color;
+      }
+    }
+  }
+
+  @media(min-width: 768px) {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
