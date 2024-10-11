@@ -7,11 +7,11 @@ import { NotificationAtomComponent } from './notification-atom/notification-atom
 import { ScrollAtomComponent } from './scroll-atom/scroll-atom.component';
 import { DropdownAtomComponent } from './dropdown-atom/dropdown-atom.component';
 import { TextComponent } from './text-atom/text.component';
-import { PagepickerAtomComponent } from './pagepicker-atom/pagepicker-atom.component';
+import { PagePickerAtomComponent } from './pagepicker-atom/pagepicker-atom.component';
 
 @NgModule({
-    declarations: [ButtonComponent, TextComponent, InputAtomComponent, NotificationAtomComponent, ScrollAtomComponent, DropdownAtomComponent, PagepickerAtomComponent],
+    declarations: [ButtonComponent, TextComponent, InputAtomComponent, NotificationAtomComponent, ScrollAtomComponent, DropdownAtomComponent, PagePickerAtomComponent],
     imports: [CommonModule, ReactiveFormsModule, FormsModule],
-    exports: [ButtonComponent, TextComponent, InputAtomComponent, NotificationAtomComponent, ScrollAtomComponent, DropdownAtomComponent, PagepickerAtomComponent],
+    exports: [ButtonComponent, TextComponent, InputAtomComponent, NotificationAtomComponent, ScrollAtomComponent, DropdownAtomComponent, PagePickerAtomComponent],
 })
 export class AtomsModule {}

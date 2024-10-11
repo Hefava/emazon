@@ -27,22 +27,25 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         message: NOTIFICATION_DEFAULT_MESSAGE
     };
 
+    currentPage: number = 0;
+    pageSize: number = 10;
+
     constructor(private categoryService: CategoryService) {}
 
     ngOnInit(): void {
-        this.reloadCategories();
+        this.reloadCategories();  
     }
 
     ngOnDestroy(): void {
         this.destroyed.complete();
     }
 
+    // Método para manejar el envío del formulario de categorías
     handleFormSubmit(category: CategoryRequest): void {
-        console.log('Datos del formulario enviados:', category); 
         this.categoryService.saveCategory(category).subscribe(
             () => {
                 this.showNotification('Success', 'Categoría guardada con éxito');
-                this.reloadCategories();
+                this.reloadCategories(); 
             },
             (error: HttpErrorResponse) => {
                 if (error.status === 409) {
@@ -54,8 +57,8 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         );
     }
 
+    // Mostrar una notificación temporal
     showNotification(type: 'Error' | 'Warning' | 'Success' | 'Inform', message: string): void {
-        console.log('Mostrando notificación:', { type, message }); 
         this.notification = { show: true, type: type, message: message };
         setTimeout(() => this.clearNotification(), 5000);
     }
@@ -64,10 +67,21 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         this.notification.show = false;
     }
 
+    // Cargar categorías del backend con la paginación
     reloadCategories(): void {
-        this.categoryService.getCategories({}).subscribe((data) => {
+        this.categoryService.getCategories({
+            page: this.currentPage,
+            pageSize: this.pageSize,
+            asc: true
+        }).subscribe((data) => {
             this.page = data;
             this.isDataLoaded = true;
         });
+    }
+
+    // Actualizar cuando el paginador cambia de página
+    onPageChange(newPage: number): void {
+        this.currentPage = newPage;
+        this.reloadCategories(); 
     }
 }

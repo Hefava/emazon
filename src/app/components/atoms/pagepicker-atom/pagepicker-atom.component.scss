@@ -1,0 +1,37 @@
+@import 'styles';
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  
+    .pagination-arrow {
+      cursor: pointer;
+      padding: 0 10px;
+      font-size: 25px;
+      color: $purple;
+  
+      &:hover {
+        color: darken($purple, 10%);
+      }
+    }
+  
+    .pagination-number {
+      cursor: pointer;
+      margin: 0 5px;
+      font-size: 20px;
+      color: $black-color;
+  
+      &.active {
+        font-weight: bold;
+        color: $purple;
+      }
+  
+      &:hover {
+        color: lighten($purple, 10%);
+      }
+    }
+  }
+  

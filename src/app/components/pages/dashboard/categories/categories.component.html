@@ -1,21 +1,28 @@
-<div class="form-group">
+<div class="title-container"> 
   <h1>
-      {{ title.split('Categorías')[0] }}<span class="categoria-highlight">Categorías!</span>
+    {{ title.split('Categorías')[0] }}<span class="categoria-highlight">Categorías!</span>
   </h1>
 </div>
 
-<ng-container *ngIf="isDataLoaded">
-  <paginated-datatable [columns]="columns" [page]="page"></paginated-datatable>
-</ng-container>
+  <ng-container *ngIf="isDataLoaded">
+    <paginated-datatable [columns]="columns" [page]="page"></paginated-datatable>
 
-<app-category-form (submitForm)="handleFormSubmit($event)"></app-category-form>
+    <!-- Paginador -->
+    <page-picker-atom
+      [page]="page?.page ?? 0" 
+      [totalPages]="page?.totalPages ?? 1"
+      (onPageChange)="onPageChange($event)">
+    </page-picker-atom>
+  </ng-container>
 
-<notification-atom 
-  *ngIf="notification.show"
-  [type]="notification.type"
-  [message]="notification.message"
-  [width]="'368px'"
-  [height]="'52px'"
-  [top]="'10px'"
-  [left]="'10px'">
-</notification-atom>
+  <app-category-form (submitForm)="handleFormSubmit($event)"></app-category-form>
+
+  <notification-atom 
+    *ngIf="notification.show"
+    [type]="notification.type"
+    [message]="notification.message"
+    [width]="'368px'"
+    [height]="'52px'"
+    [top]="'10px'"
+    [left]="'10px'">
+  </notification-atom>

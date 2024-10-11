@@ -1,1 +1,38 @@
-<p>pagepicker-atom works!</p>
+<nav class="pagination">
+    <!-- Página anterior -->
+    <span 
+      *ngIf="page > 0" 
+      class="pagination-arrow" 
+      (click)="selectPage(page - 1)">
+      &#x2190;
+    </span>
+  
+    <!-- Primeras páginas -->
+    <ng-container *ngIf="page >= 3">
+      <span class="pagination-number" (click)="selectPage(0)">1</span>
+      <span *ngIf="page > 3">...</span>
+    </ng-container>
+  
+    <!-- Páginas centrales -->
+    <span *ngFor="let p of displayedPages"
+      class="pagination-number"
+      (click)="selectPage(p)">
+      {{ p + 1 }}
+    </span>
+  
+    <!-- Últimas páginas -->
+    <ng-container *ngIf="page <= totalPages - 4">
+      <span *ngIf="page < totalPages - 4">...</span>
+      <span class="pagination-number" (click)="selectPage(totalPages - 1)">
+        {{ totalPages }}
+      </span>
+    </ng-container>
+  
+    <!-- Página siguiente -->
+    <span 
+      *ngIf="page < totalPages - 1" 
+      class="pagination-arrow" 
+      (click)="selectPage(page + 1)">
+      &#x2192;
+    </span>
+  </nav>  
