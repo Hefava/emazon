@@ -13,13 +13,13 @@ import { NOTIFICATION_DEFAULT_MESSAGE, NOTIFICATION_DEFAULT_TYPE } from '@consta
     templateUrl: './categories.component.html',
     styleUrls: ['./categories.component.scss'],
 })
-
 export class CategoriesComponent implements OnInit, OnDestroy {
     private destroyed = new Subject();
     columns: Array<Column> = categoryColumns;
     page?: Page<CategoryResponse>;
     isDataLoaded: boolean = false;
     title: string = CATEGORY_TABLE_TITLE;
+    isModalOpen: boolean = false; 
 
     notification = {
         show: false,
@@ -40,12 +40,12 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         this.destroyed.complete();
     }
 
-    // Método para manejar el envío del formulario de categorías
     handleFormSubmit(category: CategoryRequest): void {
         this.categoryService.saveCategory(category).subscribe(
             () => {
                 this.showNotification('Success', 'Categoría guardada con éxito');
-                this.reloadCategories(); 
+                this.reloadCategories();
+                this.closeModal(); // Cerrar el modal tras enviar el formulario
             },
             (error: HttpErrorResponse) => {
                 if (error.status === 409) {
@@ -57,7 +57,6 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         );
     }
 
-    // Mostrar una notificación temporal
     showNotification(type: 'Error' | 'Warning' | 'Success' | 'Inform', message: string): void {
         this.notification = { show: true, type: type, message: message };
         setTimeout(() => this.clearNotification(), 5000);
@@ -67,7 +66,6 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         this.notification.show = false;
     }
 
-    // Cargar categorías del backend con la paginación
     reloadCategories(): void {
         this.categoryService.getCategories({
             page: this.currentPage,
@@ -79,9 +77,19 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         });
     }
 
-    // Actualizar cuando el paginador cambia de página
     onPageChange(newPage: number): void {
         this.currentPage = newPage;
         this.reloadCategories(); 
+    }
+
+    // Abrir el modal
+    openModal(): void {
+        this.isModalOpen = true;
+    }
+
+    // Cerrar el modal
+    closeModal(): void {
+        this.isModalOpen = false;
+        this.clearNotification(); // Limpiar la notificación al cerrar el modal
     }
 }

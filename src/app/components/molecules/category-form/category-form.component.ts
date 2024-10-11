@@ -1,13 +1,14 @@
+// category-form.component.ts
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EMPTY_STRING } from '@constants/atom-constants';
 import {
-    CATEGORY_BUTTON_TEXT,
-    CATEGORY_DESCRIPTION_LABEL,
-    CATEGORY_DESCRIPTION_PLACEHOLDER,
-    CATEGORY_FORM_TITLE,
-    CATEGORY_NAME_LABEL,
-    CATEGORY_NAME_PLACEHOLDER,
+  CATEGORY_BUTTON_TEXT,
+  CATEGORY_DESCRIPTION_LABEL,
+  CATEGORY_DESCRIPTION_PLACEHOLDER,
+  CATEGORY_FORM_TITLE,
+  CATEGORY_NAME_LABEL,
+  CATEGORY_NAME_PLACEHOLDER,
 } from '@constants/molecule-constants';
 import { CategoryRequest } from '@interfaces/models/category-request.model';
 
@@ -49,7 +50,7 @@ export class CategoryFormComponent implements OnInit {
         descripcion: this.categoryForm.value.description,
       };
       this.submitForm.emit(dataToSend); 
-      console.log(dataToSend);
+      console.log(dataToSend); 
       this.categoryForm.reset(); 
     }
   }

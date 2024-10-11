@@ -1,0 +1,18 @@
+<div class="modal-backdrop" (click)="closeModal()"></div>
+<div class="modal-container">
+  <notification-atom 
+    *ngIf="notification && notification.show"
+    [type]="notification.type"
+    [message]="notification.message"
+    [width]="'100%'" 
+    class="notification-container">
+  </notification-atom>
+
+  <div class="modal-header">
+    <button class="close-button" (click)="closeModal()">X</button>
+  </div>
+
+  <div class="modal-content">
+    <ng-content></ng-content> 
+  </div>
+</div>
