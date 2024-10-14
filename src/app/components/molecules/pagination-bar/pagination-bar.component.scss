@@ -1,31 +1,41 @@
 .pagination-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 0;
+
+  .pagination-controls {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
-    margin-bottom: 20px;
+    gap: 15px; 
+    width: 100%;
+  }
   
+  @media (min-width: 769px) {
     .pagination-controls {
-      display: flex;
-      align-items: center;
-      gap: 15px;
+      gap: 100px; 
     }
-  
-    @media (max-width: 768px) {
-      flex-direction: row;
-      width: 100%;
+    sort-by-atom, show-by-atom {
+      margin: 0 80px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 15px;
+
+    .pagination-controls {
+      gap: 20px; 
       justify-content: space-between;
-      padding: 0 15px; 
-  
-      .pagination-controls {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-      }
-  
-      sort-by-atom, show-by-atom {
-        margin: 0 10px; 
-      }
     }
-  }  
+
+    sort-by-atom, show-by-atom {
+      margin: 0 25px;
+    }
+  }
+}

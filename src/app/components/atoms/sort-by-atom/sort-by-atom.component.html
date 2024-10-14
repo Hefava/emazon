@@ -1,10 +1,20 @@
 <div class="sort-by-atom">
-    <label for="sort-by-select" class="sort-by-label">Ordenar:</label>
+  <label for="sort-by-select" class="sort-by-label">Ordenar:</label>
+
+  <!-- Mostrar la flecha antes de las opciones -->
+  <button class="sort-direction" (click)="toggleSortDirection()">
+    <span class="arrow" [ngClass]="{'asc': isAscending, 'desc': !isAscending}">&#8593;</span> <!-- Flecha de orden -->
+  </button>
+
+  <!-- Si hay más de una opción, mostrar un desplegable -->
+  <ng-container *ngIf="sortOptions.length > 1; else staticOption">
     <select id="sort-by-select" class="sort-by-select" (change)="onSortCriteriaChange($event)">
       <option *ngFor="let option of sortOptions" [value]="option">{{ option }}</option>
     </select>
-    <button class="sort-direction" (click)="toggleSortDirection()">
-      <span *ngIf="isAscending">&#8593;</span> 
-      <span *ngIf="!isAscending">&#8595;</span> 
-    </button>
-  </div>  
+  </ng-container>
+
+  <!-- Opción estática si solo hay un valor -->
+  <ng-template #staticOption>
+    <span class="static-option">{{ selectedCriteria }}</span>
+  </ng-template>
+</div>

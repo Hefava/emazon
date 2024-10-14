@@ -1,4 +1,30 @@
+.datatable-container {
+  width: 100%; 
+  display: flex;
+  flex-direction: column; 
+  align-items: stretch; 
+  overflow: hidden;
+}
+
+.pagination-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+}
+
 .datatable {
+  margin-top: 0;
+  margin-bottom: 0.5rem; 
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .pagination-wrapper {
+    padding: 10px 0;
+  }
+
+  .datatable {
+    margin-top: -1rem; 
     margin-bottom: 0.5rem;
-    width: 100%;
-} 
+  }
+}

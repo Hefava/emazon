@@ -6,7 +6,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./show-by-atom.component.scss'],
 })
 export class ShowByAtomComponent {
-  pageSizes: number[] = [10, 20, 50];
+  pageSizes: number[] = [10, 15, 20];
 
   @Output() pageSizeChange = new EventEmitter<number>();
 

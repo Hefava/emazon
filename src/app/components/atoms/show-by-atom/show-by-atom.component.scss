@@ -1,3 +1,5 @@
+@import 'styles';
+
 .show-by-atom {
     display: flex;
     align-items: center;
@@ -9,24 +11,23 @@
     }
   
     .show-by-select {
-      padding: 6px 12px;
-      border: 1px solid #ccc;
+      padding: 4px 8px;
+      border: none;
       border-radius: 4px;
-      font-size: 14px;
-      background-color: #fff;
-      color: #333;
+      font-size: 16px;
+      background-color: transparent;
+      color: $purple;
       cursor: pointer;
   
       &:focus {
         outline: none;
-        border-color: #6a1b9a;
       }
     }
   
     /* Estilos para dispositivos móviles */
     @media (max-width: 768px) {
       .show-by-select {
-        font-size: 12px;
+        font-size: 14px;
         padding: 4px 8px;
       }
   

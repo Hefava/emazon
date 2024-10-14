@@ -15,8 +15,10 @@
   </paginated-datatable>
 </ng-container>
 
-<!-- Botón para agregar una categoría -->
-<button-atom [size]="'m'" [type]="'main'" (click)="openModal()">Agregar Categoría</button-atom>
+<!-- Contenedor para el botón -->
+<div class="button-container">
+  <button-atom [size]="'s'" [type]="'main'" (click)="openModal()">Crear Categoría</button-atom>
+</div>
 
 <!-- Modal para agregar categoría -->
 <app-modal *ngIf="isModalOpen" (close)="closeModal()" [notification]="notification">

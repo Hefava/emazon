@@ -1,22 +1,41 @@
+@import 'styles';
+
 .categoria-highlight {
-    color: #9d3fe7; 
-  }
+  color: $purple; 
+}
 
 .title-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px; 
-    max-width: 100%;
-    padding: 0 16px;  
-    box-sizing: border-box; 
-    margin: 0 auto; 
-    margin-bottom: 0.5rem;
+  display: flex;
+  gap: 16px; 
+  max-width: 100%;
+  padding: 0 16px;  
+  box-sizing: border-box; 
+  margin: 0 auto 0.5rem auto; 
 }
-  
+
+/* Estilos para el contenedor del botón */
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Alinea el botón a la derecha */
+  box-sizing: border-box;
+  margin-bottom: 1rem; 
+
+  button-atom {
+    width: auto; 
+  }
+}
+
 @media (min-width: 768px) {
-    .title-container {
-      max-width: 600px; 
-      padding: 0 32px;  
-    }
+  .title-container {
+    max-width: 100%; 
+    padding-left: 0; 
+    margin-left: 14.5rem; 
+    margin-bottom: -1rem;
+  }
+
+  .button-container {
+    justify-content: flex-end; /* Alinea el botón a la derecha */
+    padding-right: 14.5rem; /* Agrega margen derecho en desktop */
+    margin-bottom: 1.5rem; /* Espacio extra entre el botón y la tabla */
+  }
 }
-  
