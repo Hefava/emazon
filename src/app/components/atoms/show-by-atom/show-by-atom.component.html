@@ -1,0 +1,6 @@
+<div class="show-by-atom">
+    <label for="show-by-select" class="show-by-label">Elementos:</label>
+    <select id="show-by-select" class="show-by-select" (change)="onPageSizeChange($event)">
+      <option *ngFor="let option of pageSizes" [value]="option">{{ option }}</option>
+    </select>
+  </div>  

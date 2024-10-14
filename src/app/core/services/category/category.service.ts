@@ -14,23 +14,28 @@ export class CategoryService {
 
   constructor(private http: HttpClient) {}
 
+  // Guardar una categoría
   saveCategory(category: CategoryRequest): Observable<void> {
     return this.http.post<void>(`${this.categoryAPIUrl}/save-category`, category);
   }
 
+  // Obtener categorías con parámetros de paginación y ordenación
   getCategories(query: PageQuery): Observable<Page<CategoryResponse>> {
     let params = new HttpParams()
-      .set('page', query.page?.toString() || '0')
-      .set('size', query.pageSize?.toString() || '10')
-      .set('order', query.asc ? 'asc' : 'desc');
+      .set('page', query.page?.toString() || '0')          // Página actual
+      .set('size', query.pageSize?.toString() || '10')     // Tamaño de página
+      .set('order', query.asc ? 'asc' : 'desc');           // Orden ascendente o descendente
 
+    // Añadir el parámetro de ordenación si está presente
     if (query.sortBy) {
       params = params.set('sortBy', query.sortBy);
     }
 
+    console.log('Enviando parámetros a backend:', params.toString()); // Debug para ver los parámetros
+
     return this.http.get<Page<CategoryResponse>>(
       `${this.categoryAPIUrl}/get-categories`,
-      { params }
+      { params }  // Parámetros de la consulta
     );
   }
 }

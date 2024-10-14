@@ -1,0 +1,10 @@
+<div class="sort-by-atom">
+    <label for="sort-by-select" class="sort-by-label">Ordenar:</label>
+    <select id="sort-by-select" class="sort-by-select" (change)="onSortCriteriaChange($event)">
+      <option *ngFor="let option of sortOptions" [value]="option">{{ option }}</option>
+    </select>
+    <button class="sort-direction" (click)="toggleSortDirection()">
+      <span *ngIf="isAscending">&#8593;</span> 
+      <span *ngIf="!isAscending">&#8595;</span> 
+    </button>
+  </div>  

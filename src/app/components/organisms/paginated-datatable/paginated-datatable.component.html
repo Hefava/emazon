@@ -1,11 +1,19 @@
-<div class="datatable">
-    <pagination-bar></pagination-bar>
-</div>
-
-<div class="datatable">
-    <datatable [columns]="columns" [rows]="rows"></datatable>
-</div>
-
-<div class="datatable">
-    <page-picker-atom></page-picker-atom>
-</div>
+<div class="datatable-container">
+    <!-- Barra de paginación -->
+    <pagination-bar 
+      (sortChange)="onSortChange($event)" 
+      (showByChange)="onShowByChange($event)">
+    </pagination-bar>
+  
+    <!-- Tabla de datos -->
+    <div class="datatable">
+      <datatable [columns]="columns" [rows]="rows"></datatable>
+    </div>
+  
+    <!-- Paginador -->
+    <page-picker-atom
+      [page]="page?.page ?? 0" 
+      [totalPages]="page?.totalPages ?? 1"
+      (onPageChange)="onPageChange($event)">
+    </page-picker-atom>
+</div>  

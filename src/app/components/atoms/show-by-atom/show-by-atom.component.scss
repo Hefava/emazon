@@ -1,0 +1,37 @@
+.show-by-atom {
+    display: flex;
+    align-items: center;
+  
+    .show-by-label {
+      margin-right: 8px;
+      font-weight: 600;
+      color: #4a4a4a;
+    }
+  
+    .show-by-select {
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      background-color: #fff;
+      color: #333;
+      cursor: pointer;
+  
+      &:focus {
+        outline: none;
+        border-color: #6a1b9a;
+      }
+    }
+  
+    /* Estilos para dispositivos móviles */
+    @media (max-width: 768px) {
+      .show-by-select {
+        font-size: 12px;
+        padding: 4px 8px;
+      }
+  
+      .show-by-label {
+        font-size: 12px;
+      }
+    }
+  }  
