@@ -5,12 +5,14 @@ import { AtomsModule } from '../atoms/atoms.module';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { PaginationBarComponent } from './pagination-bar/pagination-bar.component';
+import { BrandFormComponent } from './brand-form/brand-form.component';
 
 @NgModule({
   declarations: [
     CategoryFormComponent,
     DatatableComponent,
-    PaginationBarComponent
+    PaginationBarComponent,
+    BrandFormComponent
   ],
   imports: [
     CommonModule,

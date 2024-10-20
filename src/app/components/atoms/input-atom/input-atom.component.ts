@@ -35,10 +35,8 @@ export class InputAtomComponent implements OnInit, ControlValueAccessor {
     @Input() placeholder: string = EMPTY_STRING;
     @Input() label: string = EMPTY_STRING;
 
-    // Valor del input
     value: string = EMPTY_STRING;
 
-    // Funciones que se llaman cuando el valor cambia
     onChange: (value: string) => void = () => {};
     onTouched: () => void = () => {};
 
@@ -51,24 +49,20 @@ export class InputAtomComponent implements OnInit, ControlValueAccessor {
             this.labelStyles = `${INPUT_LABEL_SIZE_PREFIX}${this.size}`;
     }
 
-    // Implementa el método para escribir el valor
     writeValue(value: string): void {
         this.value = value;
     }
 
-    // Implementa el método para registrar el callback de cambio
     registerOnChange(fn: any): void {
         this.onChange = fn;
     }
 
-    // Implementa el método para registrar el callback de toque
     registerOnTouched(fn: any): void {
         this.onTouched = fn;
     }
 
-    // Método que se llama cuando el input cambia
     onInput(value: string): void {
         this.value = value;
-        this.onChange(value); // Llama al callback de cambio
+        this.onChange(value); 
     }
 }

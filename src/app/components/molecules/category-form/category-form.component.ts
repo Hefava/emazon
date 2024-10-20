@@ -1,4 +1,3 @@
-// category-form.component.ts
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EMPTY_STRING } from '@constants/atom-constants';
@@ -32,8 +31,8 @@ export class CategoryFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.categoryForm = this.fb.group({
-      name: [EMPTY_STRING, Validators.required],
-      description: [EMPTY_STRING, Validators.required],
+      name: [EMPTY_STRING, [Validators.required, Validators.maxLength(50)]],
+      description: [EMPTY_STRING, [Validators.required, Validators.maxLength(90)]],
     });
   }
 
@@ -56,6 +55,26 @@ export class CategoryFormComponent implements OnInit {
   }
 
   isButtonActive(): boolean {
-    return this.categoryForm.valid;
+    return this.categoryForm.valid; // El botón se habilita solo si el formulario es válido
+  }
+
+  getNameErrorMessage(): string {
+    if (this.categoryForm.controls['name'].hasError('required')) {
+      return 'El nombre es requerido.';
+    }
+    if (this.categoryForm.controls['name'].hasError('maxlength')) {
+      return 'Máximo 50 caracteres permitidos.';
+    }
+    return '';
+  }
+
+  getDescriptionErrorMessage(): string {
+    if (this.categoryForm.controls['description'].hasError('required')) {
+      return 'La descripción es requerida.';
+    }
+    if (this.categoryForm.controls['description'].hasError('maxlength')) {
+      return 'Máximo 90 caracteres permitidos.';
+    }
+    return '';
   }
 }
